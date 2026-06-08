@@ -1,9 +1,10 @@
 import math
 import matplotlib.pyplot as plt
 
-# Dataset: daily temperature (X) and ice cream sales (Y)
-temperatures = [20, 25, 15]
-ice_cream_sales = [100, 120, 80]
+# Custom dataset for Assessment 2
+# Temperature (X) and ice cream sales (Y)
+temperatures = [18, 22, 26]
+ice_cream_sales = [90, 110, 130]
 days = [1, 2, 3]
 
 # Step 1: Calculate the means (averages)
@@ -24,18 +25,17 @@ covariance = sum(products_of_deviations) / len(temperatures)
 temperature_squared_deviations = [value ** 2 for value in temperature_deviations]
 sales_squared_deviations = [value ** 2 for value in sales_deviations]
 
-# Step 4.2: Calculate variance for each variable
+# Step 4.2: Calculate the variance for each variable
 temperature_variance = sum(temperature_squared_deviations) / len(temperatures)
 sales_variance = sum(sales_squared_deviations) / len(ice_cream_sales)
 
-# Step 4.3: Take the square root of variance to get standard deviation
+# Step 4.3: Take the square root of the variance to get the standard deviation
 temperature_std_dev = math.sqrt(temperature_variance)
 sales_std_dev = math.sqrt(sales_variance)
 
 # Step 4.4: Calculate the correlation coefficient
 correlation_coefficient = covariance / (temperature_std_dev * sales_std_dev)
 
-# Print the full step-by-step results
 print("Covariance and Correlation Lab")
 print(f"Temperature data: {temperatures}")
 print(f"Ice cream sales data: {ice_cream_sales}")
@@ -53,22 +53,18 @@ print(f"Temperature standard deviation: {temperature_std_dev}")
 print(f"Sales standard deviation: {sales_std_dev}")
 print(f"Correlation coefficient: {correlation_coefficient}")
 
-# Create a scatter plot and trend line for the visualization
+# Create a scatter plot and trend line
 plt.figure(figsize=(8, 5))
 plt.scatter(temperatures, ice_cream_sales, color="purple", s=100, label="Data points")
-
-# Draw mean lines
 plt.axvline(mean_temperature, color="blue", linestyle="--", label=f"Mean temperature = {mean_temperature}")
 plt.axhline(mean_sales, color="orange", linestyle="--", label=f"Mean sales = {mean_sales}")
 
-# Add a trend line
 slope = sum(products_of_deviations) / sum(temperature_squared_deviations)
 intercept = mean_sales - (slope * mean_temperature)
 trend_x = [min(temperatures), max(temperatures)]
 trend_y = [slope * x + intercept for x in trend_x]
 plt.plot(trend_x, trend_y, color="green", label="Trend line")
 
-# Label the points with day numbers
 for day, x, y in zip(days, temperatures, ice_cream_sales):
     plt.annotate(f"Day {day}", (x, y), textcoords="offset points", xytext=(5, 5))
 
