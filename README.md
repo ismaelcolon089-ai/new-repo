@@ -1,10 +1,8 @@
 # Standard Deviation Lab
 
-This project demonstrates how to calculate the **population standard deviation** for the dataset provided in the assignment.
+This project shows the steps used to calculate the standard deviation for the dataset in the assignment.
 
 ## Dataset
-The number of books read by eight learners in one month:
-
 `2, 4, 4, 4, 5, 5, 7, 9`
 
 ## Objective
@@ -20,38 +18,37 @@ Where:
 - `N` = number of data points
 - `x` = each value in the dataset
 
-## Step-by-step calculation
-1. **Mean**
-   - `(2 + 4 + 4 + 4 + 5 + 5 + 7 + 9) / 8 = 40 / 8 = 5`
+## Here are the steps to calculate the standard deviation
 
-2. **Squared differences from the mean**
-   - `(2 - 5)² = 9`
-   - `(4 - 5)² = 1`
-   - `(4 - 5)² = 1`
-   - `(4 - 5)² = 1`
-   - `(5 - 5)² = 0`
-   - `(5 - 5)² = 0`
-   - `(7 - 5)² = 4`
-   - `(9 - 5)² = 16`
+1. **Calculate the mean (average) of the data set:**
+   - `X̄ = (2 + 4 + 4 + 4 + 5 + 5 + 7 + 9) / 8`
+   - `X̄ = 40 / 8 = 5`
 
-3. **Variance**
-   - `(9 + 1 + 1 + 1 + 0 + 0 + 4 + 16) / 8 = 32 / 8 = 4`
+2. **Calculate the squared differences from the mean for each data point:**
+   - `(2 - 5)² = (-3)² = 9`
+   - `(4 - 5)² = (-1)² = 1`
+   - `(4 - 5)² = (-1)² = 1`
+   - `(4 - 5)² = (-1)² = 1`
+   - `(5 - 5)² = 0² = 0`
+   - `(5 - 5)² = 0² = 0`
+   - `(7 - 5)² = 2² = 4`
+   - `(9 - 5)² = 4² = 16`
 
-4. **Standard deviation**
+3. **Calculate the average of these squared differences (variance):**
+   - `Variance = (9 + 1 + 1 + 1 + 0 + 0 + 4 + 16) / 8`
+   - `Variance = 32 / 8 = 4`
+
+4. **Take the square root of the variance to get the standard deviation:**
    - `√4 = 2`
 
 ## Result
 The standard deviation of the dataset is **2**.
 
-This means that, on average, the number of books read differs from the mean by **2 books**.
-
 ## Project files
-- `standard_deviation.py` — Python script that calculates the mean, variance, and standard deviation
+- `standard_deviation.py` — Python script with comments that calculates the mean, variance, and standard deviation
 - `newfile.txt` — original tracked file from the repo history
 
 ## How to run
-If Python is installed, run:
-
 ```bash
 python standard_deviation.py
 ```
